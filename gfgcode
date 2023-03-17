@@ -1,0 +1,47 @@
+ Compute {
+    
+    public int largest(int arr[], int n)
+    {
+        Arrays.sort(arr);
+        return arr[n-1];
+    }
+}
+
+ Solution {
+    int print2largest(int arr[], int n) {
+        int high=Integer.MIN_VALUE;
+        int sechigh=Integer.MIN_VALUE;
+        //Traverse array
+        for(int i=0;i<n;i++){
+            //if greater the highest
+            if(arr[i]>high){
+                //assign high value into second high
+                sechigh=high;
+                //set new high
+                high=arr[i];
+            }
+            //if number less than highest and greater than sechigh
+            if(arr[i]<high&&arr[i]>sechigh){
+                //set sechigh
+                sechigh=arr[i];
+            }
+            
+        }
+            int j=-1;
+    if(sechigh!=Integer.MIN_VALUE)
+      return (sechigh);
+    else
+      return j;
+        
+    
+    }
+}
+class Solution {
+    boolean arraySortedOrNot(int[] arr, int n) {
+        // base case
+        if(n==1 || n ==0)
+            return true;
+        
+        return arr[n-1]>=arr[n-2] && arraySortedOrNot(arr,n-1);
+    }
+}
